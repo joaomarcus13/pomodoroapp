@@ -5,12 +5,9 @@ import TaskContext from '../../context/taskContext';
 import * as Styled from './styles';
 
 export default function TaskToAdd({ task, save, cancel }) {
-  // const [taskDetails, setTaskDetails] = useState({});
   const { dispatch } = useContext(TaskContext);
   const [title, setTitle] = useState(task?.title || '');
   const [n_pomodoros, setN_Pomodoros] = useState(task?.n_pomodoros || 1);
-
-  console.log('task to add usando dispatch');
 
   function handleConfirm() {
     if (title) {
@@ -31,15 +28,8 @@ export default function TaskToAdd({ task, save, cancel }) {
   }
 
   function handleDelete() {
-    console.log('delete');
     dispatch({ type: 'DELETE', payload: task?.id });
   }
-
-  useEffect(() => {
-    return () => {
-      console.log('saiu');
-    };
-  }, []);
 
   return (
     <Styled.Container>

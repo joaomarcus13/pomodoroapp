@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 import styled, { css } from 'styled-components';
 
-export const Container = styled.div`
+export const Container = styled.section`
   height: min(500px, 60%);
   width: 500px;
   display: flex;
@@ -18,11 +18,9 @@ export const Container = styled.div`
     div:first-child {
       font-weight: bold;
       height: 25px;
-      /* background-color: blue; */
     }
     div:last-child {
       height: 25px;
-      /* background-color: green; */
     }
   }
 `;
@@ -59,8 +57,10 @@ export const ContainerTimer = styled.div`
     height: 50px;
     border-radius: 8px;
     border: none;
-    color: black;
+    color: rgba(0, 0, 0, 0.8);
     font-size: 1em;
+    font-weight: bold;
+    letter-spacing: 1px;
     box-shadow: 2px 6px 5px 1px rgba(0, 0, 0, 0.3);
     border: 10px thick black;
     align-self: center;

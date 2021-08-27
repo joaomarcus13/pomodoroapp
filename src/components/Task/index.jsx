@@ -42,17 +42,18 @@ export default function Task({ task }) {
             onClick={handlecompleted}
             completed={task.completed}
           ></Styled.Icons.Check>
+          {/* <Styled.Check></Styled.Check> */}
           <span>{task.title}</span>
           <span>
             {task.current_n_pomodoros}/{task.n_pomodoros}
           </span>
-          <div>
-            <Styled.Icons.Dots
-              onClick={() => {
-                setEdit(true);
-              }}
-            ></Styled.Icons.Dots>
-          </div>
+          {/* <div> */}
+          <Styled.Icons.Dots
+            onClick={() => {
+              setEdit(true);
+            }}
+          ></Styled.Icons.Dots>
+          {/* </div> */}
         </Styled.Container>
       )}
     </>

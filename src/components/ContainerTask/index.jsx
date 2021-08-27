@@ -8,7 +8,6 @@ import * as Styled from './styles';
 // import { BsThreeDotsVertical } from 'react-icons/bs';
 
 export default function TaskContainer() {
-  // const [tasks, setTasks] = useState([]);
   const { state } = useContext(TaskContext);
   const [createTask, setCreateTask] = useState(false);
   const [openModal, setOpenModal] = useState(false);

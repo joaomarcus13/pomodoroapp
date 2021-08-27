@@ -1,7 +1,9 @@
 /* eslint-disable no-case-declarations */
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
-import React, { createContext, useReducer } from 'react';
+import React, { createContext, useReducer, useEffect } from 'react';
+
+import { useCookies, Cookies } from 'react-cookie';
 
 const initialState = {
   tasks: [],
@@ -84,9 +86,25 @@ function reducerTask(state, action) {
   const fn = actions[action.type];
   return fn ? fn(state, action) : state;
 }
-
+function init(initialState) {
+  let cookie = new Cookies();
+  const state = cookie.get('taskcontext');
+  return state || initialState;
+}
 export const TaskProvider = ({ children }) => {
-  const [state, dispatch] = useReducer(reducerTask, initialState);
+  const [cookies, setCookie] = useCookies(['taskcontext']);
+  const [state, dispatch] = useReducer(reducerTask, initialState, init);
+
+  //  const { state } = useContext(TaskContext);
+
+  useEffect(() => {
+    const date = new Date();
+    date.setDate(date.getDate() + 7);
+    setCookie('taskcontext', state, {
+      path: '/',
+      expires: date,
+    });
+  }, [state]);
 
   return (
     <TaskContext.Provider

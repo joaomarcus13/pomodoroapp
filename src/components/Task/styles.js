@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { FaCheckCircle } from 'react-icons/fa';
+// import { FaCheckCircle } from 'react-icons/fa';
 import { BsThreeDotsVertical } from 'react-icons/bs';
 
 export const Container = styled.div`
@@ -31,18 +31,37 @@ export const Container = styled.div`
     color: ${({ theme }) => theme.fontSecondary};
   }
 
-  div {
+  /* div {
     display: flex;
     padding: 4px;
     border-radius: 4px;
     background-color: #dcd5d5;
+  } */
+`;
+
+const Check = styled.div`
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  &::before {
+    content: '';
+    display: block;
+    width: 5px;
+    height: 10px;
+    border-right: 4px solid ${({ theme }) => theme.font};
+    border-bottom: 4px solid ${({ theme }) => theme.font};
+    transform: rotateZ(45deg);
+    margin-bottom: 2px;
   }
 `;
 
 export const Icons = {
-  Check: styled(FaCheckCircle)`
-    font-size: 1.5em;
-    color: ${(props) =>
+  Check: styled(Check)`
+    /* font-size: 1.5em; */
+    background-color: ${(props) =>
       props.completed ? props.theme.checked : props.theme.unchecked};
     z-index: 10;
   `,

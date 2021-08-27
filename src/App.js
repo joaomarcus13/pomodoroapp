@@ -4,14 +4,17 @@ import { GlobalStyle } from './styles/global';
 
 import { AppProvider } from './context/themeContext';
 import { TaskProvider } from './context/taskContext';
+import { CookiesProvider } from 'react-cookie';
 function App() {
   return (
     <>
       <AppProvider>
-        <TaskProvider>
-          <GlobalStyle></GlobalStyle>
-          <Home></Home>
-        </TaskProvider>
+        <CookiesProvider>
+          <TaskProvider>
+            <GlobalStyle></GlobalStyle>
+            <Home></Home>
+          </TaskProvider>
+        </CookiesProvider>
       </AppProvider>
     </>
   );
