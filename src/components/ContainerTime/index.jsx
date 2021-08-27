@@ -2,8 +2,13 @@
 import React, { useContext, useEffect, useState } from 'react';
 import * as Styled from './styles';
 import Timer from '../Timer';
-import AppContext from '../../context/appContext';
+// import AppContext from '../../context/appContext';
 import { ThemeContext } from 'styled-components';
+import useTimer from '../../hooks/useTimer';
+import TaskContext from '../../context/taskContext';
+//pomodoro 25
+//short 5
+//long 15
 export default function TimerContainer() {
   const {
     timer,
@@ -12,60 +17,75 @@ export default function TimerContainer() {
     isActive,
     pauseTimer,
     changeTimer,
-  } = useContext(AppContext);
-  const themeContext = useContext(ThemeContext);
-  console.log(themeContext);
+  } = useTimer();
+  // const themeContext = useContext(ThemeContext);
+  // console.log(themeContext);
+
+  const { state } = useContext(TaskContext);
+
+  const handleChangeTimer = (name) => {
+    if (!state.currentTask) {
+      changeTimer(name);
+    }
+  };
 
   return (
     <Styled.Container>
-      <Styled.AriaButtons>
-        <button
-          type="button"
-          name="pomodoro"
-          onClick={(e) => {
-            changeTimer(e.target.name);
-          }}
-        >
-          pomodoro
-        </button>
-        <button
-          type="button"
-          name="shortBreak"
-          onClick={(e) => {
-            changeTimer(e.target.name);
-          }}
-        >
-          pausa curta
-        </button>
-        <button
-          type="button"
-          name="longBreak"
-          onClick={(e) => {
-            changeTimer(e.target.name);
-          }}
-        >
-          pausa longa
-        </button>
-      </Styled.AriaButtons>
-      <Styled.TimerContainer>
-        {/* <div>{secondToTimer(timer)}</div> */}
-        <Timer seconds={currentTimer.time}></Timer>
-      </Styled.TimerContainer>
+      <Styled.ContainerTimer>
+        <header>
+          <Styled.Button
+            type="button"
+            name="pomodoro"
+            indicator={currentTimer.name === 'pomodoro'}
+            onClick={(e) => {
+              changeTimer(e.target.name);
+            }}
+          >
+            pomodoro
+          </Styled.Button>
+          <Styled.Button
+            type="button"
+            name="shortBreak"
+            indicator={currentTimer.name === 'shortBreak'}
+            onClick={(e) => {
+              handleChangeTimer(e.target.name);
+            }}
+          >
+            pausa curta
+          </Styled.Button>
+          <Styled.Button
+            type="button"
+            name="longBreak"
+            indicator={currentTimer.name === 'longBreak'}
+            onClick={(e) => {
+              handleChangeTimer(e.target.name);
+            }}
+          >
+            pausa longa
+          </Styled.Button>
+        </header>
 
-      {isActive ? (
-        <button type="button" className="pause" onClick={pauseTimer}>
-          pausar
-        </button>
-      ) : (
-        <button
-          type="button"
-          onClick={() => {
-            setIsActive(true);
-          }}
-        >
-          iniciar
-        </button>
-      )}
+        <Timer seconds={currentTimer.time}></Timer>
+
+        {isActive ? (
+          <button type="button" className="pause" onClick={pauseTimer}>
+            pausar
+          </button>
+        ) : (
+          <button
+            type="button"
+            onClick={() => {
+              setIsActive(true);
+            }}
+          >
+            iniciar
+          </button>
+        )}
+      </Styled.ContainerTimer>
+      <div className="activity">
+        <div>Atividade Atual</div>
+        <div>{state.currentTask?.title}</div>
+      </div>
     </Styled.Container>
   );
 }

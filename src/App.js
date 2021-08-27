@@ -2,14 +2,16 @@ import React from 'react';
 import Home from './pages/Home';
 import { GlobalStyle } from './styles/global';
 
-import { AppProvider } from './context/appContext';
+import { AppProvider } from './context/themeContext';
+import { TaskProvider } from './context/taskContext';
 function App() {
   return (
     <>
       <AppProvider>
-        <GlobalStyle></GlobalStyle>
-
-        <Home></Home>
+        <TaskProvider>
+          <GlobalStyle></GlobalStyle>
+          <Home></Home>
+        </TaskProvider>
       </AppProvider>
     </>
   );

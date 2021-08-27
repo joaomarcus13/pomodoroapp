@@ -8,8 +8,13 @@ export const GlobalStyle = createGlobalStyle`
  }
  body{
      font-family: 'Poppins', sans-serif;
+     height: 100vh;
  }
- button{
+ :is(button,svg){
      cursor: pointer;
  }
+ input{
+     outline: none;
+ }
+
 `;

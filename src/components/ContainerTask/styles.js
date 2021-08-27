@@ -1,25 +1,47 @@
 import styled from 'styled-components';
 import { BsThreeDotsVertical } from 'react-icons/bs';
+import { FiPlusCircle } from 'react-icons/fi';
 
 export const Container = styled.section`
-  height: 70%;
+  height: min(500px, 60%);
   width: 500px;
-  color: ${({ theme }) => theme.font};
+  /* align-self: center; */
   font-weight: 500;
-  font-size: 1.3em;
+  box-shadow: 0px 0px 5px 0px #00000040;
+  padding: 0 10px;
+  border-radius: 8px;
+  position: relative;
+
+  @media (max-width: 768px) {
+    width: 80vw;
+  }
 
   & > div.header {
     padding: 0 10px;
     height: 50px;
+    font-size: 1.3em;
+    color: ${({ theme }) => theme.font};
     border-bottom: 1px solid white;
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     justify-content: space-between;
+    div.icon {
+      display: flex;
+      background-color: ${({ theme }) => theme.container};
+      padding: 4px;
+      border-radius: 4px;
+      &:active {
+        transform: translateY(2px);
+      }
+    }
+    & > span {
+      width: 80%;
+    }
   }
 
   & > div.body {
     padding: 10px 0;
-    overflow-y: auto;
+    overflow-y: scroll;
     height: calc(100% - 50px);
     &::-webkit-scrollbar {
       width: 5px;
@@ -39,4 +61,46 @@ export const DotsIcons = styled(BsThreeDotsVertical)`
   color: ${({ theme }) => theme.font};
   font-size: 22px;
   cursor: pointer;
+`;
+
+export const AddIcon = styled(FiPlusCircle)`
+  color: ${({ theme }) => theme.font};
+  font-size: 25px;
+  cursor: pointer;
+`;
+
+export const Add = styled.div`
+  position: relative;
+  width: 30px;
+  height: 30px;
+  background: ${({ theme }) => theme.font};
+  border-radius: 50%;
+  cursor: pointer;
+  &:active {
+    transform: translateY(2px);
+    opacity: 0.8;
+  }
+
+  &:before,
+  &:after {
+    content: '';
+    position: absolute;
+    background: ${({ theme }) => theme.main};
+  }
+
+  &:before {
+    left: 50%;
+    top: 6px;
+    bottom: 6px;
+    width: 3px;
+    transform: translateX(-50%);
+  }
+
+  &:after {
+    top: 50%;
+    left: 6px;
+    right: 6px;
+    height: 3px;
+    transform: translateY(-50%);
+  }
 `;
