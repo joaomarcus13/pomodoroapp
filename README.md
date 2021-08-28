@@ -1,3 +1,4 @@
+![pomodoro](https://user-images.githubusercontent.com/47799418/131222043-2c15a2f2-980b-4d7b-9fc8-32a81452da25.jpg)
 ### Pomodoro App
 
 > A small project created with React.js
