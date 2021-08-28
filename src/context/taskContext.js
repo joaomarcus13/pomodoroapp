@@ -95,8 +95,6 @@ export const TaskProvider = ({ children }) => {
   const [cookies, setCookie] = useCookies(['taskcontext']);
   const [state, dispatch] = useReducer(reducerTask, initialState, init);
 
-  //  const { state } = useContext(TaskContext);
-
   useEffect(() => {
     const date = new Date();
     date.setDate(date.getDate() + 7);

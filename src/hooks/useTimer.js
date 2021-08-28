@@ -5,9 +5,9 @@ import ThemeContext from '../context/themeContext';
 import TaskContext from '../context/taskContext';
 
 export default function useTimer() {
-  const pomodoro = 1;
-  const shortBreak = 5;
-  const longBreak = 15;
+  const pomodoro = 0.2;
+  const shortBreak = 0.2;
+  const longBreak = 0.2;
   let interval;
   function minToSec(min) {
     return min * 60;
@@ -62,7 +62,7 @@ export default function useTimer() {
 
   function initTimer() {
     if (currentTimer.time <= 0) {
-      clearTimeout(interval);
+      // clearTimeout(interval);
       let nextTimer = {
         pomodoro: () => {
           setN_pomodoros((state) => state + 1);
@@ -111,6 +111,7 @@ export default function useTimer() {
     if (isActive) {
       initTimer();
     }
+    return () => clearTimeout(interval);
   }, [initTimer, isActive]);
 
   return {

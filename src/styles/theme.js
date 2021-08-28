@@ -1,6 +1,6 @@
 export const themes = {
   pomodoro: {
-    main: '#e43c37',
+    main: 'linear-gradient(217deg, #e43c37 50%, #ec351a);',
     container: '#ee5c58',
     font: 'white',
     fontSecondary: '#6b6b6b',

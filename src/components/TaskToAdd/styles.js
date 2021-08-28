@@ -72,7 +72,7 @@ export const Container = styled.div`
       color: ${({ theme }) => theme.fontSecondary};
       background: none;
       &:first-child {
-        background-color: ${({ theme }) => theme.main};
+        background: ${({ theme }) => theme.main};
         color: white;
       }
       &:last-child {

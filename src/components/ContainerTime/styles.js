@@ -68,7 +68,6 @@ export const ContainerTimer = styled.div`
     transition: all 0.3s ease;
     margin-bottom: 20px;
     &:hover {
-      /* transform: scale(1.03); */
       box-shadow: 2px 6px 8px 3px rgba(0, 0, 0, 0.3);
     }
     &:active {
@@ -80,24 +79,10 @@ export const ContainerTimer = styled.div`
   }
 `;
 
-// export const Button = styled.button`
-//   flex-grow: 1;
-//   height: 50px;
-//   background-color: transparent;
-//   border: none;
-//   border-bottom: ${(props) => (props.indicator ? `2px solid white` : '')};
-//   color: ${({ theme }) => theme.font};
-//   font-weight: 400;
-//   font-size: 1.3em;
-// `;
 export const Button = styled.button`
   ${(props) => css`
-    /* flex-grow: 1; */
-    /* height: 50px; */
     padding: 6px 8px;
-    background-color: ${props.indicator
-      ? props.theme.main
-      : props.theme.container};
+    background: ${props.indicator ? props.theme.main : props.theme.container};
     border-radius: 8px;
     border: none;
     color: ${({ theme }) => theme.font};
@@ -105,16 +90,3 @@ export const Button = styled.button`
     font-size: 1.3em;
   `}
 `;
-
-// export const AriaButtons = styled.div`
-//   button {
-//     flex-grow: 1;
-//     height: 50px;
-//     background-color: transparent;
-//     border: none;
-
-//     color: ${({ theme }) => theme.font};
-//     font-weight: 400;
-//     font-size: 1.3em;
-//   }
-// `;
