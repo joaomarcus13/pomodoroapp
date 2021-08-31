@@ -1,11 +1,9 @@
 import styled from 'styled-components';
 import { BsThreeDotsVertical } from 'react-icons/bs';
-import { FiPlusCircle } from 'react-icons/fi';
 
 export const Container = styled.section`
   height: min(500px, 60%);
   width: 500px;
-  /* align-self: center; */
   font-weight: 500;
   box-shadow: 0px 0px 5px 0px #00000040;
   padding: 0 10px;
@@ -26,9 +24,12 @@ export const Container = styled.section`
     align-items: center;
     justify-content: space-between;
     div.icon {
+      height: 30px;
+      width: 30px;
       display: flex;
+      align-items: center;
+      justify-content: center;
       background-color: ${({ theme }) => theme.container};
-      padding: 4px;
       border-radius: 4px;
       &:active {
         transform: translateY(2px);
@@ -57,50 +58,45 @@ export const Container = styled.section`
   }
 `;
 
-export const DotsIcons = styled(BsThreeDotsVertical)`
-  color: ${({ theme }) => theme.font};
-  font-size: 22px;
-  cursor: pointer;
-`;
+export const Icons = {
+  Dots: styled(BsThreeDotsVertical)`
+    color: ${({ theme }) => theme.font};
+    font-size: 22px;
+    cursor: pointer;
+  `,
+  Add: styled.div`
+    position: relative;
+    width: 30px;
+    height: 30px;
+    background: ${({ theme }) => theme.font};
+    border-radius: 4px;
+    cursor: pointer;
+    &:active {
+      transform: translateY(2px);
+      opacity: 0.8;
+    }
 
-export const AddIcon = styled(FiPlusCircle)`
-  color: ${({ theme }) => theme.font};
-  font-size: 25px;
-  cursor: pointer;
-`;
+    &:before,
+    &:after {
+      content: '';
+      position: absolute;
+      background: ${({ theme }) => theme.main};
+    }
 
-export const Add = styled.div`
-  position: relative;
-  width: 30px;
-  height: 30px;
-  background: ${({ theme }) => theme.font};
-  border-radius: 50%;
-  cursor: pointer;
-  &:active {
-    transform: translateY(2px);
-    opacity: 0.8;
-  }
+    &:before {
+      left: 50%;
+      top: 6px;
+      bottom: 6px;
+      width: 3px;
+      transform: translateX(-50%);
+    }
 
-  &:before,
-  &:after {
-    content: '';
-    position: absolute;
-    background: ${({ theme }) => theme.main};
-  }
-
-  &:before {
-    left: 50%;
-    top: 6px;
-    bottom: 6px;
-    width: 3px;
-    transform: translateX(-50%);
-  }
-
-  &:after {
-    top: 50%;
-    left: 6px;
-    right: 6px;
-    height: 3px;
-    transform: translateY(-50%);
-  }
-`;
+    &:after {
+      top: 50%;
+      left: 6px;
+      right: 6px;
+      height: 3px;
+      transform: translateY(-50%);
+    }
+  `,
+};

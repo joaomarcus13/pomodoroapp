@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-// import { FaCheckCircle } from 'react-icons/fa';
 import { BsThreeDotsVertical } from 'react-icons/bs';
 
 export const Container = styled.div`
@@ -31,12 +30,15 @@ export const Container = styled.div`
     color: ${({ theme }) => theme.fontSecondary};
   }
 
-  /* div {
+  div:last-child {
     display: flex;
     padding: 4px;
     border-radius: 4px;
-    background-color: #dcd5d5;
-  } */
+    background-color: #dedede;
+    &:active {
+      transform: translateY(2px);
+    }
+  }
 `;
 
 const Check = styled.div`
@@ -60,7 +62,6 @@ const Check = styled.div`
 
 export const Icons = {
   Check: styled(Check)`
-    /* font-size: 1.5em; */
     background-color: ${(props) =>
       props.completed ? props.theme.checked : props.theme.unchecked};
     z-index: 10;

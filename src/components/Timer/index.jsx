@@ -3,11 +3,6 @@ import React from 'react';
 import * as Styled from './styles';
 
 export default function Timer({ seconds }) {
-  //   function secondToTimer(seconds) {
-  //     const min = Math.floor(seconds / 60);
-  //     const sec = Math.floor(seconds % 60);
-  //     return `${min}:${sec}`;
-  //   }
   const minutes = Math.floor(seconds / 60);
   const second = Math.floor(seconds % 60);
 

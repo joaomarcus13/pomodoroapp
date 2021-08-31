@@ -1,12 +1,9 @@
-/* eslint-disable no-unused-vars */
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext } from 'react';
 import * as Styled from './styles';
 import Timer from '../Timer';
 import useTimer from '../../hooks/useTimer';
 import TaskContext from '../../context/taskContext';
-//pomodoro 25
-//short 5
-//long 15
+
 export default function TimerContainer() {
   const { currentTimer, setIsActive, isActive, pauseTimer, changeTimer } =
     useTimer();

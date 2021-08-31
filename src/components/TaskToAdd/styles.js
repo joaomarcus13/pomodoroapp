@@ -1,18 +1,13 @@
 import styled from 'styled-components';
 import { BiDownArrow, BiUpArrow } from 'react-icons/bi';
-// import { BsThreeDotsVertical } from 'react-icons/bs';
 
 export const Container = styled.div`
   width: 100%;
   height: 200px;
   background-color: white;
-
-  /* color: #2e2e2e; */
   display: flex;
   flex-direction: column;
-  /* align-items: center; */
   justify-content: space-between;
-  /* padding: 20px 10px; */
   border-radius: 4px;
   margin-top: 5px;
   animation: div 0.3s;

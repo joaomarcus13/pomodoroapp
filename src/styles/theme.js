@@ -9,7 +9,7 @@ export const themes = {
   },
 
   shortBreak: {
-    main: '#339a9e',
+    main: 'linear-gradient(217deg, #339a9e 50%, #1e8a8e)',
     container: '#4eb4b8',
     font: 'white',
     fontSecondary: '#6b6b6b',
@@ -18,7 +18,7 @@ export const themes = {
   },
 
   longBreak: {
-    main: '#266da0',
+    main: 'linear-gradient(217deg, #266da0 50%, #1b5b8a)',
     container: '#568bb1',
     font: 'white',
     fontSecondary: '#6b6b6b',

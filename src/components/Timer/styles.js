@@ -25,7 +25,5 @@ export const Container = styled.div`
   div > span {
     width: 60px;
     text-align: center;
-
-    /* background-color: blue; */
   }
 `;

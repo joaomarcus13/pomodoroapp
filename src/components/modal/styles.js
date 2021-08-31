@@ -6,13 +6,11 @@ export const Container = styled.div`
   border-radius: 4px;
   background-color: white;
   position: absolute;
-  /* display: ${({ visible }) => (visible ? 'flex' : 'none')}; */
   display: flex;
   visibility: ${({ visible }) => (visible ? 'visible' : 'hidden')};
   flex-direction: column;
   align-items: flex-start;
   justify-content: space-evenly;
-  /* padding: 0 8px; */
   top: 30px;
   right: 35px;
   transition: all 0.2s ease;
@@ -26,7 +24,6 @@ export const Container = styled.div`
     font-size: 0.7em;
     list-style: none;
     cursor: pointer;
-    /* background-color: blue; */
     width: 100%;
     padding: 6px 8px;
     &:hover {

@@ -29,7 +29,6 @@ export const ContainerTimer = styled.div`
   background-color: ${({ theme }) => theme.container};
   height: 90%;
   width: 100%;
-  /* align-self: center; */
   border-radius: 8px;
   box-shadow: 0px 0px 3px 0px #00000046;
   display: flex;

@@ -1,11 +1,9 @@
-/* eslint-disable no-unused-vars */
 import React, { useContext, useState } from 'react';
 import TaskContext from '../../context/taskContext';
 import Modal from '../modal';
 import Task from '../Task';
 import TaskToAdd from '../TaskToAdd';
 import * as Styled from './styles';
-// import { BsThreeDotsVertical } from 'react-icons/bs';
 
 export default function TaskContainer() {
   const { state } = useContext(TaskContext);
@@ -22,23 +20,18 @@ export default function TaskContainer() {
     <Styled.Container>
       <div className="header">
         <span>Atividades</span>
-        {/* <Styled.AddIcon
+        <Styled.Icons.Add
           onClick={() => {
             setCreateTask((state) => !state);
           }}
-        ></Styled.AddIcon> */}
-        <Styled.Add
-          onClick={() => {
-            setCreateTask((state) => !state);
-          }}
-        ></Styled.Add>
+        ></Styled.Icons.Add>
         <div
           className="icon"
           onClick={() => {
             setOpenModal((state) => !state);
           }}
         >
-          <Styled.DotsIcons></Styled.DotsIcons>
+          <Styled.Icons.Dots></Styled.Icons.Dots>
         </div>
         <Modal visible={openModal} options={options}></Modal>
       </div>

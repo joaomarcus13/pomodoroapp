@@ -83,6 +83,7 @@ const actions = {
 };
 
 function reducerTask(state, action) {
+  console.log(action.type);
   const fn = actions[action.type];
   return fn ? fn(state, action) : state;
 }
@@ -92,7 +93,7 @@ function init(initialState) {
   return state || initialState;
 }
 export const TaskProvider = ({ children }) => {
-  const [cookies, setCookie] = useCookies(['taskcontext']);
+  const [_, setCookie] = useCookies(['taskcontext']);
   const [state, dispatch] = useReducer(reducerTask, initialState, init);
 
   useEffect(() => {

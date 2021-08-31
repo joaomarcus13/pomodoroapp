@@ -4,7 +4,7 @@ import React, { createContext, useState } from 'react';
 import { themes } from '../styles/theme';
 const ThemeContext = createContext({});
 
-export const AppProvider = ({ children }) => {
+export const ThemeProvider = ({ children }) => {
   const [theme, setTheme] = useState(themes.pomodoro);
 
   return (

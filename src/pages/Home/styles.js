@@ -8,7 +8,6 @@ export const Container = styled.main`
   align-items: center;
   justify-content: space-around;
 
-  transition: all 1s ease;
   @media (max-width: 1025px) {
     padding: 70px 0;
     flex-direction: column;

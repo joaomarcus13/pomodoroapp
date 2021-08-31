@@ -5,9 +5,12 @@ import ThemeContext from '../context/themeContext';
 import TaskContext from '../context/taskContext';
 
 export default function useTimer() {
-  const pomodoro = 0.2;
-  const shortBreak = 0.2;
-  const longBreak = 0.2;
+  const pomodoro = 25;
+  const shortBreak = 5;
+  const longBreak = 15;
+  //pomodoro 25
+  //short 5
+  //long 15
   let interval;
   function minToSec(min) {
     return min * 60;
@@ -34,21 +37,19 @@ export default function useTimer() {
   const [currentTimer, setcurrentTimer] = useState(timers.pomodoro);
   const [n_pomodoros, setN_pomodoros] = useState(0);
   const { setTheme } = useContext(ThemeContext);
-  const { dispatch } = useContext(TaskContext);
+  const { state, dispatch } = useContext(TaskContext);
 
   function showNotification(notification) {
-    // const audio = new Audio('../assets/notification.mp3');
-    // audio.play();
-    // const msg = state.currentTask
-    //   ? `Trabalhando em: ${state.currentTask?.title}`
-    //   : 'adicione/selecione uma atividade';
-    // if (Notification.permission === 'granted') {
-    //   new Notification(notification, {
-    //     body: msg,
-    //   });
-    // } else {
-    //   Notification.requestPermission();
-    // }
+    const msg = state.currentTask
+      ? `Trabalhando em: ${state.currentTask?.title}`
+      : 'adicione/selecione uma atividade';
+    if (Notification.permission === 'granted') {
+      new Notification(notification, {
+        body: msg,
+      });
+    } else {
+      Notification.requestPermission();
+    }
   }
 
   function resetTimer(timer, action = null) {
