@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, { useContext } from 'react';
 import * as Styled from './styles';
 import Timer from '../Timer';
@@ -5,8 +6,14 @@ import useTimer from '../../hooks/useTimer';
 import TaskContext from '../../context/taskContext';
 
 export default function TimerContainer() {
-  const { currentTimer, setIsActive, isActive, pauseTimer, changeTimer } =
-    useTimer();
+  const {
+    timers,
+    currentTimer,
+    setIsActive,
+    isActive,
+    pauseTimer,
+    changeTimer,
+  } = useTimer();
 
   const { state } = useContext(TaskContext);
 
