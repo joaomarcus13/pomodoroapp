@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import ConfigContext from '../../context/configContext';
+import logo from '../../assets/icons/logo.svg';
 import * as Styled from './styles';
 
 export default function Header() {
@@ -8,7 +9,7 @@ export default function Header() {
   return (
     <Styled.Container>
       <div>
-        <span>Pomodoro App</span>
+        <img src={logo} alt="pomodoro app" />
         <span
           onClick={() => {
             dispatchConfig({ type: 'OPEN_CONFIG' });

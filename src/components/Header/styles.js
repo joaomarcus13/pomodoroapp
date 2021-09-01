@@ -16,20 +16,17 @@ export const Container = styled.div`
     align-items: center;
     justify-content: space-around;
     border-bottom: 1px solid ${({ theme }) => theme.container};
-
+    img {
+      height: 100%;
+    }
     span {
       display: flex;
       align-items: center;
       gap: 5px;
-      &:first-child {
-        font-size: 23px;
-      }
-      &:last-child {
-        background-color: ${({ theme }) => theme.container};
-        padding: 4px 8px;
-        border-radius: 4px;
-        cursor: pointer;
-      }
+      background-color: ${({ theme }) => theme.container};
+      padding: 4px 8px;
+      border-radius: 4px;
+      cursor: pointer;
     }
   }
   @media (max-width: 768px) {
