@@ -31,6 +31,7 @@ export const Container = styled.section`
       justify-content: center;
       background-color: ${({ theme }) => theme.container};
       border-radius: 4px;
+      margin-left: 5px;
       &:active {
         transform: translateY(2px);
       }

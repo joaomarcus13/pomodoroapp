@@ -3,41 +3,42 @@ import { useContext, useEffect, useState } from 'react';
 import { themes } from '../styles/theme';
 import ThemeContext from '../context/themeContext';
 import TaskContext from '../context/taskContext';
+import ConfigContext from '../context/configContext';
 
 export default function useTimer() {
-  const pomodoro = 25;
-  const shortBreak = 5;
-  const longBreak = 15;
-  //pomodoro 25
-  //short 5
-  //long 15
+  // const pomodoro = 25;
+  // const shortBreak = 5;
+  // const longBreak = 15;
   let interval;
   function minToSec(min) {
     return min * 60;
   }
-  const timers = {
+  const { stateConfig } = useContext(ConfigContext);
+  const [isActive, setIsActive] = useState(false);
+  const [n_pomodoros, setN_pomodoros] = useState(0);
+  const { setTheme } = useContext(ThemeContext);
+  const { state, dispatch } = useContext(TaskContext);
+
+  const timersState = {
     pomodoro: {
       name: 'pomodoro',
-      time: minToSec(pomodoro),
+      time: minToSec(25),
       notification: 'Hora de Trabalhar! Inicie o Timer',
     },
     shortBreak: {
       name: 'shortBreak',
-      time: minToSec(shortBreak),
+      time: minToSec(5),
       notification: 'Pausa curta!',
     },
     longBreak: {
       name: 'longBreak',
-      time: minToSec(longBreak),
+      time: minToSec(15),
       notification: 'Pausa Longa, Descanse um pouco!',
     },
   };
 
-  const [isActive, setIsActive] = useState(false);
+  const [timers, setTimers] = useState(timersState);
   const [currentTimer, setcurrentTimer] = useState(timers.pomodoro);
-  const [n_pomodoros, setN_pomodoros] = useState(0);
-  const { setTheme } = useContext(ThemeContext);
-  const { state, dispatch } = useContext(TaskContext);
 
   function showNotification(notification) {
     const msg = state.currentTask
@@ -109,6 +110,15 @@ export default function useTimer() {
   }, []);
 
   useEffect(() => {
+    let temp = { ...timersState };
+    temp.pomodoro.time = minToSec(stateConfig.pomodoro);
+    temp.shortBreak.time = minToSec(stateConfig.shortBreak);
+    temp.longBreak.time = minToSec(stateConfig.longBreak);
+    setTimers(temp);
+    setcurrentTimer(temp[currentTimer.name]);
+  }, [stateConfig]);
+
+  useEffect(() => {
     if (isActive) {
       initTimer();
     }
@@ -116,6 +126,7 @@ export default function useTimer() {
   }, [initTimer, isActive]);
 
   return {
+    timers,
     currentTimer,
     setIsActive,
     isActive,
